@@ -3,8 +3,8 @@ import type { PropType } from "vue";
 import { computed } from "vue";
 
 // types
-type KbdKeyType = "A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L";
-type SoundType =
+type KbdKey = "A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L";
+type Sound =
   | "clap"
   | "hihat"
   | "kick"
@@ -14,7 +14,10 @@ type SoundType =
   | "snare"
   | "tom"
   | "tink";
-type CssClass = { [key: string]: boolean };
+
+interface CssClasses {
+  [key: string]: boolean;
+}
 
 // props
 const props = defineProps({
@@ -22,14 +25,14 @@ const props = defineProps({
    * Keyboard key type ("A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L")
    */
   kbdKey: {
-    type: String as PropType<KbdKeyType>,
+    type: String as PropType<KbdKey>,
     required: true,
   },
   /**
    * Drum sound
    */
   sound: {
-    type: String as PropType<SoundType>,
+    type: String as PropType<Sound>,
     required: true,
   },
   /**
@@ -42,7 +45,7 @@ const props = defineProps({
 });
 
 // computed
-const classes = computed((): CssClass => {
+const classes = computed((): CssClasses => {
   const { isPlaying } = props;
 
   return {
