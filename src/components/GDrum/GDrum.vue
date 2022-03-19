@@ -2,22 +2,7 @@
 import type { PropType } from "vue";
 import { computed } from "vue";
 
-// types
-type KbdKey = "A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L";
-type Sound =
-  | "clap"
-  | "hihat"
-  | "kick"
-  | "openhat"
-  | "boom"
-  | "ride"
-  | "snare"
-  | "tom"
-  | "tink";
-
-interface CssClasses {
-  [key: string]: boolean;
-}
+import type { KbdKey, Sound, CssClasses } from "@/config/types";
 
 // props
 const props = defineProps({
