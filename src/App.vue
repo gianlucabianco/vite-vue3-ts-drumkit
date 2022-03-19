@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import GDrum from "@/components/GDrum/GDrum.vue";
 // TODO: ADD RouterLink (vue-router) for other pages
 </script>
 
 <template>
-  <GDrum kbdKey="A" sound="clap" :to="{ name: 'clap' }" />
-
   <RouterView />
 </template>
 
