@@ -4,9 +4,13 @@ import type { Sound } from "@/config/types";
  * When invoked, the playSound function plays a sound.
  * It handles also a state callback, useful to trigger
  * custom behavior where the function is used.
+ *
+ * The path to where the sound asset is located is
+ * passed as a parameter.
  */
 export const playSound = (
   sound: Sound,
+  path: string,
   handleStateCallBack: () => void
 ): void => {
   /**
@@ -15,7 +19,7 @@ export const playSound = (
    * For further details, see:
    * https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
    */
-  const audio = new Audio(`./src/assets/sounds/${sound}.wav`);
+  const audio = new Audio(path);
 
   if (!audio) return;
 
