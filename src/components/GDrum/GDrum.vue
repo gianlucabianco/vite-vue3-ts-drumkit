@@ -26,6 +26,14 @@ const props = defineProps({
     type: String as PropType<Sound>,
     required: true,
   },
+  /**
+   * Sound path
+   * Sets the location of the sound asset.
+   */
+  path: {
+    type: String as PropType<string>,
+    required: true,
+  },
 });
 
 /**
@@ -48,7 +56,7 @@ const togglePlay = () => {
 const keyCombo = {
   kbdKey: props.kbdKey,
   drum: props.sound,
-  action: () => playSound(props.sound, togglePlay),
+  action: () => playSound(props.sound, props.path, togglePlay),
 };
 
 /**
