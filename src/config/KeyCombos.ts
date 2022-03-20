@@ -1,42 +1,47 @@
-import { playSound } from "@/composables/PlaySound";
+/**
+ * This file is used to map key combos to actions.
+ * New key combos can be added by adding a new object to
+ * the array and updating the key combos in the code and
+ * the KeyCombos.ts file.
+ */
 import type { KeyCombos } from "@/config/types";
 
 const keyCombos: KeyCombos = [
   {
-    key: "A",
-    action: () => playSound("clap"),
+    kbdKey: "KeyA",
+    drum: "clap",
   },
   {
-    key: "S",
-    action: () => playSound("hihat"),
+    kbdKey: "KeyS",
+    drum: "hihat",
   },
   {
-    key: "D",
-    action: () => playSound("kick"),
+    kbdKey: "KeyD",
+    drum: "kick",
   },
   {
-    key: "F",
-    action: () => playSound("openhat"),
+    kbdKey: "KeyF",
+    drum: "openhat",
   },
   {
-    key: "G",
-    action: () => playSound("boom"),
+    kbdKey: "KeyG",
+    drum: "boom",
   },
   {
-    key: "H",
-    action: () => playSound("ride"),
+    kbdKey: "KeyH",
+    drum: "ride",
   },
   {
-    key: "J",
-    action: () => playSound("snare"),
+    kbdKey: "KeyJ",
+    drum: "snare",
   },
   {
-    key: "K",
-    action: () => playSound("tom"),
+    kbdKey: "KeyK",
+    drum: "tom",
   },
   {
-    key: "L",
-    action: () => playSound("tink"),
+    kbdKey: "KeyL",
+    drum: "tink",
   },
 ];
 
