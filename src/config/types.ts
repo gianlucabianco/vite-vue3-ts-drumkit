@@ -9,6 +9,8 @@ export type KbdKey =
   | "KeyK"
   | "KeyL";
 
+export type KbdKeyName = "A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L";
+
 export type Sound =
   | "clap"
   | "hihat"
@@ -22,6 +24,7 @@ export type Sound =
 
 export interface KeyCombo {
   kbdKey: KbdKey;
+  kbdKeyName: KbdKeyName;
   drum: Sound;
   action?: () => void;
 }
