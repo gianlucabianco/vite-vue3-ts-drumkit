@@ -1,0 +1,177 @@
+/*
+    1. More-intuitive box-sizing model.
+
+    Most browsers use a default box-sizing model of content-box.
+    This model is way less intuitive, and can lead to lots of weird issues
+    (eg. having a child overflow because it sets width: 100%).
+
+    By setting box-sizing: border-box, we change how the browser
+    interprets percentage-based sizes and distances.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+
+    Browsers will make common-sense assumptions around margin: for example,
+    a heading will include more margin by default than a paragraph.
+
+    These assumptions are reasonable within the context of a word-processing
+    document, but they might not be accurate for a modern webapp.
+
+    Margin is tricky (margin collapse, etc), and more often than not,
+    it's better elements didn't have any by default.
+
+    The wildcard selector (*) has extremely low specificity,
+    so it's easy to override this rule.
+
+*/
+* {
+  margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+
+    Using the percentage unit for the height property won't always work.
+    This only works if the parent defines an absolute height (eg. height: 400px), or
+    if all of the ancestors use percentages, all the way up to the root HTML element.
+
+    By setting html and body to have height: 100%, we make it easier for us to use
+    percentage-based heights down the line, if we decide to.
+
+    We might wish to add a third selector, to target the app container (Vue app, or storybook app).
+    In this specific case, the root element of the target app should be added to the selector.
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+    Typographic tweaks:
+    4. Add accessible line-height
+    5. Improve text rendering
+
+    A line-height of at least 1.5 is required, this is because tightly-packed
+    lines are difficult for dyslexic people to read, according to the
+    [WCAG criteria](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html).
+
+    The "default" value varies between browsers, but tends to be around 1.2.
+    This bumps it up to an accessible value.
+
+    `-webkit-font-smoothing: antialiased` improves text rendering on MacOS browsers.
+    These properties are set on body rather than in a wildcard selector (*) because
+    typography styles are inheritable.
+    This means they'll automatically be carried down the DOM tree for us,
+    while still being very easy to override when needed.
+
+*/
+body {
+  line-height: 1.5;
+
+  transition: color 0.5s, background-color 0.5s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+    6. Improve media defaults
+
+    Images are considered "inline" elements.
+    This implies that they should be used in the middle of paragraphs, like <em> or <strong>.
+
+    This doesn't jive with how images are used most of the time (layout elements).
+
+    If we try to use an inline element in our layout, though, weird things happen.
+    We have to worry about inline magic space.
+    By setting display: block on all media elements by default,
+    we sidestep a whole category of funky issues.
+
+    `max-width: 100%` is set to keep large images from overflowing, if they're placed in a container
+    that isn't wide enough to contain them.
+    Because images/videos are replaced elements, they don't behave like other elements do.
+
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+
+    By default, buttons don't inherit typographic styles.
+
+    On Chrome, for example, buttons will have a default font size of 13.333px.
+    This is way too small; we want most text to be at least 1rem (16px).
+
+    Rather than set custom font sizes and styles for buttons and other inputs,
+    we should set it to inherit.
+    This way, these elements will automatically match their surrounding typography.
+
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+
+    We have a few ways to manage text overflow in CSS.
+    To avoid unbreakable text from spilling out the sides of their parent containers,
+    we can apply this rule to allow hard wraps.
+
+    It's not needed in this specific project, but `hyphens: auto;` could be a great default too.
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+    9. Create a root stacking context
+
+    The isolation property allows us to create a new stacking context without setting a z-index.
+
+    By creating a stacking context on our application's container, we ensure that everything within
+    our application will participate in an "app-specific" context, rather than the global top-level context.
+    This makes it possible for us to guarantee that elements created using portals (eg. modals, tooltips)
+    will always show up on top of our application.
+
+    We're using the selector `.app` for the vue main app, and the `#root` selector because it's the
+    storybook application container.
+
+*/
+.app,
+#root {
+  isolation: isolate;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The app should not need dark-mode, but in case it will be developed, rules should be here */
+}
+
+@media (prefers-color-scheme: light) {
+  /* The app should not need dark-mode, but in case it will be developed, rules for light version should be here */
+}
