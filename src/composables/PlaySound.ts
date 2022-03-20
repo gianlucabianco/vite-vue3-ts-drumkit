@@ -1,14 +1,32 @@
 import type { Sound } from "@/config/types";
-// TODO: this function should work with both capital and lowercase letters
 
-export const playSound = (sound: Sound): void => {
-  // TODO: DOCUMENT THE AUDIO CONSTRUCTOR
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
+/**
+ * When invoked, the playSound function plays a sound.
+ * It handles also a state callback, useful to trigger
+ * custom behavior where the function is used.
+ */
+export const playSound = (
+  sound: Sound,
+  handleStateCallBack: () => void
+): void => {
+  /**
+   * The Audio() constructor creates and returns a new HTMLAudioElement
+   * used in this project to manage and play audio.
+   * For further details, see:
+   * https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
+   */
   const audio = new Audio(`./src/assets/sounds/${sound}.wav`);
 
   if (!audio) return;
 
+  /**
+   * The user could chose to play the sound multiple times.
+   * This is to prevent the sound from playing multiple times.
+   * The handleStateCallBack should handle the state of the
+   * component in which the sound is playing.
+   */
   audio.currentTime = 0;
+  handleStateCallBack();
 
   /**
    * HTMLMediaElement interface includes the play method.
@@ -31,10 +49,13 @@ export const playSound = (sound: Sound): void => {
   audio
     .play()
     .then(() => {
-      // TODO: when audio is done, stop the button animation
-      console.log(`${sound} sound played`);
+      /**
+       * After the sound is played, the handleStateCallBack should handle
+       * the state of the component in which the sound is played.
+       */
+      handleStateCallBack();
     })
-    .catch((err = `${sound} sound could not be played`) => {
+    .catch((err) => {
       console.error(`${sound} sound error: ${err}`);
     });
 };
