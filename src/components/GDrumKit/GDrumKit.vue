@@ -10,6 +10,7 @@ import GDrum from "@/components/GDrum/GDrum.vue";
       :key="`${index}-${keyCombo.drum}`"
       :kbd-key="keyCombo.kbdKey"
       :sound="keyCombo.drum"
+      :path="`./src/assets/sounds/${keyCombo.drum}.wav`"
     />
   </div>
 </template>
