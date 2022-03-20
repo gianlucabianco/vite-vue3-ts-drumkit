@@ -2,7 +2,13 @@
 import { ref, computed, onMounted } from "vue";
 
 import type { PropType } from "vue";
-import type { KbdKey, Sound, CssClasses, KeyCombo } from "@/config/types";
+import type {
+  KbdKey,
+  KbdKeyName,
+  Sound,
+  CssClasses,
+  KeyCombo,
+} from "@/config/types";
 
 import userKeydown from "@/composables/UserKeydown";
 import { playSound } from "@/composables/PlaySound";
@@ -15,6 +21,15 @@ const props = defineProps({
    */
   kbdKey: {
     type: String as PropType<KbdKey>,
+    required: true,
+  },
+  /**
+   * Keyboard key name displayed to the user.
+   * It could be configured in '@/config/KeyCombos'.
+   * To see the current configured kbdKeyName, mouse hover the KbdKey name.
+   */
+  kbdKeyName: {
+    type: String as PropType<KbdKeyName>,
     required: true,
   },
   /**
@@ -50,11 +65,12 @@ const togglePlay = () => {
 };
 
 /**
- * keyCombo is the key combination of keyboard key, sound and callback function
+ * keyCombo is the key combination of keyboard key, keyboard key name, sound and callback function
  * that triggers the component.
  */
 const keyCombo = {
   kbdKey: props.kbdKey,
+  kbdKeyName: props.kbdKeyName,
   drum: props.sound,
   action: () => playSound(props.sound, props.path, togglePlay),
 };
@@ -81,7 +97,7 @@ onMounted(() => {
 
 <template>
   <div class="drum" :class="classes">
-    <kbd class="kbd-key">{{ props.kbdKey }}</kbd>
+    <kbd class="kbd-key-name">{{ props.kbdKeyName }}</kbd>
     <span class="sound">{{ props.sound }}</span>
   </div>
 </template>
