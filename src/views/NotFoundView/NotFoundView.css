@@ -1,0 +1,22 @@
+.not-found-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  color: hsl(47, 100%, 50%);
+  background-color: hsl(40, 4%, 16%);
+}
+
+.not-found-view h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.not-found-view p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
