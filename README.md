@@ -1,3 +1,4 @@
 # vite-vue3-ts-drumkit
 
-TODO: README BEFORE DEPLOY
+🚧 This project is currently under development.
+It will be published soon, stay tuned!
