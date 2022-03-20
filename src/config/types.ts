@@ -1,4 +1,13 @@
-export type KbdKey = "A" | "S" | "D" | "F" | "G" | "H" | "J" | "K" | "L";
+export type KbdKey =
+  | "KeyA"
+  | "KeyS"
+  | "KeyD"
+  | "KeyF"
+  | "KeyG"
+  | "KeyH"
+  | "KeyJ"
+  | "KeyK"
+  | "KeyL";
 
 export type Sound =
   | "clap"
@@ -12,13 +21,13 @@ export type Sound =
   | "tink";
 
 export interface KeyCombo {
-  key: KbdKey;
-  fn?: () => void;
+  kbdKey: KbdKey;
+  drum: Sound;
   action?: () => void;
 }
 
 export interface Event {
-  key: string;
+  code: string;
 }
 
 export interface CssClasses {
