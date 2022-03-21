@@ -13,7 +13,7 @@
   transition: all 2s ease;
   width: 10rem;
   text-align: center;
-  color: hsl(0, 0%, 100%);
+  color: hsl(47, 100%, 50%);
   background: hsla(0, 0%, 0%, 0.4);
   text-shadow: 0 0 0.5rem hsl(0, 0%, 0%);
 }
