@@ -161,7 +161,7 @@ Wanna help?
 
 Feel free to open `issues`, make suggestions via `discussions`, or `Contribute`.
 
-Thanks for using this component 💘.
+Thanks to have watch and tried this repo 💘.
 
 ---
 
