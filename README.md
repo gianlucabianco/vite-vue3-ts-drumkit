@@ -144,7 +144,7 @@ To improve the development experience, I recommend the installation of the follo
 
 ---
 
-# 🚧 THIS IS A WORK IN PROGRES 🚧
+# 🚧 THIS IS A WORK IN PROGRESS 🚧
 
 I've currenty put in this project 10 hours of work, and I would like to improve the following:
 
