@@ -45,7 +45,7 @@ To install the project, run the following command:
 
 ```
 
-### Compile and Hot-Reload for Development
+### 🧑‍💻 Compile and Hot-Reload for Development
 
 ```sh
 
@@ -53,7 +53,7 @@ To install the project, run the following command:
 
 ```
 
-### Type-Check, Compile and Minify for Production
+### 🏗️ Type-Check, Compile and Minify for Production
 
 ```sh
 
@@ -61,7 +61,7 @@ To install the project, run the following command:
 
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### ✅ Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
 
@@ -69,7 +69,7 @@ To install the project, run the following command:
 
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### 🚨 Lint with [ESLint](https://eslint.org/)
 
 ```sh
 
@@ -81,13 +81,13 @@ For further `scripts`, see `package.json`.
 
 ---
 
-# Styleguide
+# 🎨 Styleguide
 
 The project code is written and organized following the [Vue Styleguide](https://vuejs.org/style-guide/).
 
 ---
 
-## Type Support for `.vue` Imports in TS
+## 🏷️ Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so the `tsc` CLI is replaced by `vue-tsc` for type checking.
 
@@ -110,13 +110,13 @@ After installing VOLAR, VETUR should be disabled for the current workspace.
 
 ---
 
-# Customize configuration
+# 🔧 Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ---
 
-## Recommended IDE Setup
+## 💻 Recommended IDE Setup
 
 Because my love for it, I strongly suggest [VSCode](https://code.visualstudio.com/) as the recomended IDE for this project. 💖 💖 💖
 
