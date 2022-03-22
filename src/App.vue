@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-// TODO: ADD RouterLink (vue-router) for other pages
 </script>
 
 <template>
