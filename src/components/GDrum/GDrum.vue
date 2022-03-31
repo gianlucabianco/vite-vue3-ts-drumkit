@@ -49,6 +49,14 @@ const props = defineProps({
     type: String as PropType<string>,
     required: true,
   },
+  /**
+   * Sound delay
+   * Sets the delay of the sound asset, in ms.
+   */
+  delay: {
+    type: Number as PropType<number>,
+    default: 70,
+  },
 });
 
 /**
@@ -59,9 +67,14 @@ const isPlaying = ref(false);
 
 /**
  * togglePlay method toggles the state of isPlaying.
+ * The delay is paired with the style to guarantee a smooth transition.
  */
 const togglePlay = () => {
-  isPlaying.value = !isPlaying.value;
+  if (isPlaying.value) {
+    setTimeout(() => {
+      isPlaying.value = false;
+    }, props.delay);
+  } else isPlaying.value = true;
 };
 
 /**
@@ -86,6 +99,10 @@ const classes = computed((): CssClasses => {
   };
 });
 
+const delayInSeconds = computed((): string => {
+  return `${props.delay / 1000}s`;
+});
+
 onMounted(() => {
   /**
    * Register the keyCombo to the userKeydown.
@@ -102,4 +119,10 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="css" src="./GDrum.css"></style>
+<style lang="css" src="./GDrum.css" scoped></style>
+
+<style lang="css" scoped>
+.drum {
+  transition: all v-bind("delayInSeconds") ease;
+}
+</style>
