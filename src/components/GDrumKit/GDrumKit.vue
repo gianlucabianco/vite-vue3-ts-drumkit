@@ -16,4 +16,4 @@ import GDrum from "@/components/GDrum/GDrum.vue";
   </div>
 </template>
 
-<style lang="css" src="./GDrumKit.css"></style>
+<style lang="css" src="./GDrumKit.css" scoped></style>
