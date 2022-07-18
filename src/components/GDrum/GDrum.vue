@@ -114,8 +114,8 @@ onMounted(() => {
 
 <template>
   <div class="drum" :class="classes">
-    <kbd class="kbd-key-name">{{ props.kbdKeyName }}</kbd>
-    <span class="sound">{{ props.sound }}</span>
+    <kbd class="kbd-key-name">{{ kbdKeyName }}</kbd>
+    <span class="sound">{{ sound }}</span>
   </div>
 </template>
 
