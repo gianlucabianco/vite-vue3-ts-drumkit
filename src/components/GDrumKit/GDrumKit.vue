@@ -6,12 +6,12 @@ import GDrum from "@/components/GDrum/GDrum.vue";
 <template>
   <div class="drum-kit">
     <GDrum
-      v-for="(keyCombo, index) in keyCombos"
-      :key="`${index}-${keyCombo.drum}`"
-      :kbd-key="keyCombo.kbdKey"
-      :kbd-key-name="keyCombo.kbdKeyName"
-      :sound="keyCombo.drum"
-      :path="`./src/assets/sounds/${keyCombo.drum}.wav`"
+      v-for="({ drum, kbdKey, kbdKeyName }, index) in keyCombos"
+      :key="`${index}-${drum}`"
+      :kbd-key="kbdKey"
+      :kbd-key-name="kbdKeyName"
+      :sound="drum"
+      :path="`./src/assets/sounds/${drum}.wav`"
     />
   </div>
 </template>
